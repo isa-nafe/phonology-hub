@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPA Chart Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>IPA Chart Explorer</h1>
+        
+        <h2>IPA Chart</h2>
+        <p>Click on a symbol to hear its sound and see more information:</p>
+        <div id="ipa-chart">
+            <div class="ipa-section" id="consonants">
+                <h3>Consonants (Pulmonic)</h3>
+                <table id="pulmonic-consonants"></table>
+            </div>
+            <div class="ipa-section" id="vowels">
+                <h3>Vowels</h3>
+                <table id="vowels-chart"></table>
+            </div>
+            <div class="ipa-section" id="non-pulmonic-consonants">
+                <h3>Non-Pulmonic Consonants</h3>
+                <div id="clicks">
+                    <h4>Clicks</h4>
+                    <table></table>
+                </div>
+                <div id="voiced-implosives">
+                    <h4>Voiced Implosives</h4>
+                    <table></table>
+                </div>
+                <div id="ejectives">
+                    <h4>Ejectives</h4>
+                    <table></table>
+                </div>
+            </div>
+            <div class="ipa-section" id="other-symbols">
+                <h3>Other Symbols</h3>
+                <table></table>
+            </div>
+        </div>
+        
+        <h2>Advanced Natural Class Finder</h2>
+        <div id="natural-class-finder">
+            <p>Select distinctive features and search options to find a natural class:</p>
+            <div id="feature-list"></div>
+            <div id="search-options">
+                <label for="search-type">Search Type:</label>
+                <select id="search-type">
+                    <option value="all">All selected features</option>
+                    <option value="any">Any selected feature</option>
+                    <option value="without">Without selected features</option>
+                </select>
+            </div>
+            <button id="find-class">Find Natural Class</button>
+            <div id="result"></div>
+            <div id="class-sounds"></div>
+        </div>
+
+        <h2>Sentence Analysis</h2>
+        <div id="sentence-analysis">
+            <form id="sentence-form">
+                <label for="sentence-input">Enter a sentence:</label>
+                <input type="text" id="sentence-input" name="sentence" required>
+                <button type="submit">Analyze</button>
+            </form>
+            <div id="analysis-result"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/ipa_chart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/natural_classes.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sentence_analysis.js') }}"></script>
+</body>
+</html>
